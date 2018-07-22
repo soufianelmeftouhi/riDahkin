@@ -6,7 +6,7 @@ export class IncrementNumberOfProductes implements Action{
    readonly type=INCREMENT_NUMBER;
 
    constructor(public payload:number) {}
-   
+
 }
 
 export type ProductActions=IncrementNumberOfProductes;
