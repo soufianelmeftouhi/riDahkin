@@ -1,4 +1,27 @@
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="nav nav-pills">
+
+
+        <div *ngIf="authService.getCurrentUser() | async as user; then showLogout  else showLogin">
+
+          </div>
+          <ng-template #showLogin>
+              <li class="nav-item">
+                  <a  class="nav-link" routerLink="/login" >Sign in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/register" >Sing up</a>
+                  </li>
+          </ng-template>
+
+          <ng-template #showLogout>
+                <a class="nav-link active" (click)="logout()" >Logout</a>
+        </ng-template>
+
+      </ul>
+  </nav>
   <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
   <input class="form-control form-control-dark w-100" [(ngModel)]="search" (ngModelChange)="filter()" type="text"
          placeholder="Search" aria-label="Search">
