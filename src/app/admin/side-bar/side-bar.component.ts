@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-side-bar',
@@ -7,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor() { }
 
+  numberOfProductsState:Observable<{numberOfPoroducts:number}>;
+
+  constructor(private store:Store<{products:{numberOfPoroducts:number}}>) {
+    this.numberOfProductsState=this.store.select('products');
+
+  }
   ngOnInit() {
   }
 

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import {Store} from '@ngrx/store';
+import * as ProductSearch from './store/header.actions';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  numberOfProductsState: Observable<{ numberOfPoroducts: number }>;
+
+  SearchField: Observable<{ search: String }>;
+  search: String = "";
+
+  constructor(private store: Store<{ products: { numberOfPoroducts: number } }>,private storeSearch: Store<{ products: { search: String } }>) {
+    this.numberOfProductsState = this.store.select('products');
+  }
 
   ngOnInit() {
+  }
+
+  filter(){
+    console.log("jhdjsld ");
+    this.storeSearch.dispatch(new ProductSearch.SearchOfProductes(this.search))
   }
 
 }

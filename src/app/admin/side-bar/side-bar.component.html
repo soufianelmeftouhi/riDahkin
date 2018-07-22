@@ -10,7 +10,7 @@
         <li class="nav-item">
           <a routerLink="/products" routerLinkActive="active" class="nav-link" href="#">
             <span data-feather="home"></span>
-            Products
+            Products({{(numberOfProductsState | async).numberOfPoroducts}})
           </a>
         </li>
       </ul>

@@ -1,7 +1,7 @@
 import * as ProductActions from './products.actions';
 
 const initialState={
-    numberOfPoroducts:1
+    numberOfPoroducts:0
 }
 
 
@@ -13,4 +13,4 @@ export function productsReducer(state=initialState,action:ProductActions.Increme
         return state;
 
     }
-} 
+}
