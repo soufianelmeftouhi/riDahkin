@@ -3,7 +3,6 @@ import {Observable} from 'rxjs/Observable';
 import {Store} from '@ngrx/store';
 import * as ProductSearch from './store/header.actions';
 
-import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 
 @Component({
@@ -18,10 +17,10 @@ export class HeaderComponent implements OnInit {
   SearchField: Observable<{ search: String }>;
   search: String = "";
 
-  constructor(private store: Store<{ products: { numberOfPoroducts: number } }>,private storeSearch: Store<{ products: { search: String } }>) {
+  constructor(public authService:AuthService,private store: Store<{ products: { numberOfPoroducts: number } }>,private storeSearch: Store<{ products: { search: String } }>) {
     this.numberOfProductsState = this.store.select('products');
   }
-  constructor(private authService:AuthService) { }
+
 
   ngOnInit() {
   }
