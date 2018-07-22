@@ -6,3 +6,15 @@
 <div>
     increment this Number : <a class="btn btn-primary" (click)="incrementProducts()" role="button">Link</a>
 </div>
+
+<div>
+
+  <div><a class="btn btn-primary" [routerLink]="['new']" role="button">Add new Product</a>
+  </div>
+  <ul>
+
+    <li *ngFor="let product of products" >#{{product.id}} - {{product.name}} <button [routerLink]="['edit',product.id]" > Edit </button> <button (click)="deleteProduct(product)" > Del </button> </li>
+
+  </ul>
+</div>
+<router-outlet></router-outlet>
