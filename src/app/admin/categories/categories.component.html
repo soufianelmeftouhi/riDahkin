@@ -1,3 +1,9 @@
 <p>
   categories works!
 </p>
+
+<ul>
+  <li *ngFor="let car of myCars">
+    <span>{{car.getDescription()}} :</span> &ensp;<span><b>{{car.getPrice()}}</b></span>
+  </li>
+</ul>
