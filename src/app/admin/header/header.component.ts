@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   SearchField: Observable<{ search: String }>;
   search: String = "";
 
-  constructor(public authService:AuthService,private store: Store<{ products: { numberOfPoroducts: number } }>,private storeSearch: Store<{ products: { search: String } }>) {
+  constructor(private authService:AuthService,private store: Store<{ products: { numberOfPoroducts: number } }>,private storeSearch: Store<{ products: { search: String } }>) {
     this.numberOfProductsState = this.store.select('products');
   }
 
